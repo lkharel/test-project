@@ -1,0 +1,37 @@
+# Compiled files
+*.out
+*.o
+*.exe
+*.dSYM/
+
+# Build directories
+build/
+cmake-build-*/
+Debug/
+Release/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Temporary files
+*~
+.~*# Local compiled executables
+Main
+areaOfCircle
+elseIfElse
+fahrenheitToCelciusConversion
+flowControlIfElse
+flowControlSwitchStatement
+functions
+inputValidation
+logicalOperator
+simpleAdditionProgram
+simpleCalculator
+stringMethod
+userInputValidation
+userRegistration
+variableScope
+videoGameMenu
