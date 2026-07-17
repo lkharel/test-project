@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="CppLearningProject" default="debug" basedir=".">
+
+    <property name="compiler" value="/usr/bin/clang++"/>
+    <property name="source.file" value="data_structures/graph.cpp"/>
+    <property name="build.dir" value="build"/>
+    <property name="output.file" value="${build.dir}/graph"/>
+
+    <target name="clean" description="Remove generated build files">
+        <delete dir="${build.dir}"/>
+        <echo message="Build directory cleaned."/>
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="debug"
+            depends="prepare"
+            description="Compile graph.cpp with debug symbols">
+
+        <exec executable="${compiler}" failonerror="true">
+            <arg value="-std=c++20"/>
+            <arg value="-Wall"/>
+            <arg value="-Wextra"/>
+            <arg value="-pedantic"/>
+            <arg value="-g"/>
+            <arg value="-O0"/>
+            <arg value="${source.file}"/>
+            <arg value="-o"/>
+            <arg value="${output.file}"/>
+        </exec>
+
+        <echo message="Debug executable created: ${output.file}"/>
+    </target>
+
+    <target name="cppUnitBuild"
+            depends="debug"
+            description="Build the C++ program for unit testing">
+
+        <echo message="C++ build completed."/>
+        <echo message="No CppUnit test files are configured yet."/>
+    </target>
+
+    <target name="run"
+            depends="debug"
+            description="Build and run graph.cpp">
+
+        <exec executable="${output.file}" failonerror="true"/>
+    </target>
+
+</project>
