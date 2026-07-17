@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main () {
+int main()
+{
 
 	string str1 = " The little dog laughed.";
 	string str2 = " The little dog laughed.";
@@ -14,9 +15,6 @@ int main () {
 	str3 = str1;
 
 	cout << " The size of str1 is: " << strLength << endl;
-
-
-
 
 	return 0;
 }
