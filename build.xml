@@ -3,9 +3,13 @@
 <project name="CppLearningProject" default="debug" basedir=".">
 
     <property name="compiler" value="/usr/bin/clang++"/>
-    <property name="source.file" value="data_structures/graph.cpp"/>
     <property name="build.dir" value="build"/>
-    <property name="output.file" value="${build.dir}/graph"/>
+
+    <property name="graph.source" value="data_structures/graph.cpp"/>
+    <property name="graph.output" value="${build.dir}/graph"/>
+
+    <property name="bank.source" value="projects/bankAccountSystem.cpp"/>
+    <property name="bank.output" value="${build.dir}/bankAccountSystem"/>
 
     <target name="clean" description="Remove generated build files">
         <delete dir="${build.dir}"/>
@@ -27,12 +31,12 @@
             <arg value="-pedantic"/>
             <arg value="-g"/>
             <arg value="-O0"/>
-            <arg value="${source.file}"/>
+            <arg value="${graph.source}"/>
             <arg value="-o"/>
-            <arg value="${output.file}"/>
+            <arg value="${graph.output}"/>
         </exec>
 
-        <echo message="Debug executable created: ${output.file}"/>
+        <echo message="Debug executable created: ${graph.output}"/>
     </target>
 
     <target name="cppUnitBuild"
@@ -47,7 +51,30 @@
             depends="debug"
             description="Build and run graph.cpp">
 
-        <exec executable="${output.file}" failonerror="true"/>
+        <exec executable="${graph.output}" failonerror="true"/>
+    </target>
+
+    <target name="bankAccount"
+            depends="prepare"
+            description="Build and run the bank account system">
+
+        <echo message="Building bank account system..."/>
+
+        <exec executable="${compiler}" failonerror="true">
+            <arg value="-std=c++20"/>
+            <arg value="-Wall"/>
+            <arg value="-Wextra"/>
+            <arg value="-pedantic"/>
+            <arg value="-g"/>
+            <arg value="-O0"/>
+            <arg value="${bank.source}"/>
+            <arg value="-o"/>
+            <arg value="${bank.output}"/>
+        </exec>
+
+        <echo message="Running bank account system..."/>
+
+        <exec executable="${bank.output}" failonerror="true"/>
     </target>
 
 </project>
