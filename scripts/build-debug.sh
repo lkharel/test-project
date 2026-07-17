@@ -2,11 +2,13 @@
 
 set -e
 
-cd "$(dirname "$0")"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+cd "$PROJECT_ROOT"
 
 if ! command -v ant >/dev/null 2>&1; then
     echo "Error: Apache Ant is not installed."
-    echo "Install it with: brew install ant"
     exit 1
 fi
 
@@ -24,7 +26,7 @@ echo "2. Building C++ unit-test and debug configuration..."
 ant cppUnitBuild
 
 echo
-echo "Build process completed successfully."
+echo "Build completed successfully."
 echo "Executable: build/graph"
 echo "Run it with: ./build/graph"
 echo "Or run it with: ant run"
