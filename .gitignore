@@ -1,8 +1,12 @@
-# Compiled files
+# macOS
+.DS_Store
+*.dSYM/
+
+# C++ compiled files
 *.out
 *.o
+*.obj
 *.exe
-*.dSYM/
 
 # Build directories
 build/
@@ -10,15 +14,14 @@ cmake-build-*/
 Debug/
 Release/
 
-# macOS
-.DS_Store
-
-# VS Code
+# Editor settings
 .vscode/
 
 # Temporary files
 *~
-.~*# Local compiled executables
+.~*
+
+# Local compiled executables
 Main
 areaOfCircle
 elseIfElse
@@ -35,3 +38,6 @@ userInputValidation
 userRegistration
 variableScope
 videoGameMenu
+stlIteratorInvalidation
+stlVector
+trial1
